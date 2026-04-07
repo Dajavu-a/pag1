@@ -15,6 +15,7 @@
         
         <h1>สิ่งที่สนใจ</h1>
         <div id="Newcontent">
+
         </div>
     </div>
 
@@ -24,6 +25,7 @@
         <input type="checkbox" name="interest" value="book">book
         <input type="checkbox" name="interest" value="sport">sport
     </div>
+    
 
     <button onclick="submitInterest()">สิ่งทีสนใจ</button>
 
@@ -44,6 +46,9 @@
 
     </div>
     <div id="mycontent">test</div>
+
+    <div>html new</div>
+    <a id="thislink" href="https://google.com" target="_blank">google</a>
 
     <script>
  
@@ -72,6 +77,7 @@
         }
         function submitdata(){
             console.log('เกย์รับปลื้มส่งใจแล้ว');
+            btn.setAttribute('disabled','true')
         }
         const btn=document.getElementById('submit_btn');
         btn.addEventListener('click',submitdata);
@@ -96,16 +102,21 @@
         function submitInterest(){
         let interestDom = document.querySelectorAll('input[name=interest]');
         let contenthtml = '<ul>';
-        for(let i=0; i > interestDom.length;i++){
+        for(let i=0; i <interestDom.length;i++){
             if(interestDom[i].checked){
                 console.log(interest[i].value);
-                contenthtml += '<li>' + interestDom[i].value+'</li>';
+                contenthtml += '<li>' + interestDom[i].value +'</li>';
             }
         }
         contenthtml += '<ul>';
         let contentDOM =document.getElementById('Newcontent');
         contentDOM.innerHTML=contenthtml;
-    }
+        }
+
+        let thislinkDom = document.getElementById('thislink');
+        console.log(thislinkDom.getAttribute('href'));
+        thislinkDom.setAttribute('href','https://www.youtube.com/watch?v=yrzJSOM9tWA');
+
 
     </script>
 </body>
