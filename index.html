@@ -10,15 +10,10 @@
 
     <input id="firstname" name="first" value="ทดสอบ">
 
-    <!--เพิ่ม-->
     <div>
-        
         <h1>สิ่งที่สนใจ</h1>
-        <div id="Newcontent">
-
-        </div>
+        <div id="Newcontent"></div>
     </div>
-
 
     <div>
         <input type="checkbox" name="interest" value="Game">Game
@@ -26,8 +21,7 @@
         <input type="checkbox" name="interest" value="sport">sport
     </div>
     
-
-    <button onclick="submitInterest()">สิ่งทีสนใจ</button>
+    <button onclick="submitInterest()">แสดงสิ่งที่สนใจ</button>
 
     <div>
         <button onclick='buttonClick()'>click</button>
@@ -35,89 +29,70 @@
 
     <div onmouseover="overitem()">
         ลากเมาส์ผ่าน
-       
     </div>
 
     <div>
-        <button id = "submit_btn"onclick='submitdata()'>exportdata</button>
+        <button id="submit_btn">exportdata</button>
     </div>
 
-    <div id="hellomyname">hello<span style="display: none;">My name </span>
-
-    </div>
+    <div id="hellomyname">hello<span style="display: none;">My name </span></div>
     <div id="mycontent">test</div>
 
     <div>html new</div>
     <a id="thislink" href="https://google.com" target="_blank">google</a>
 
     <script>
- 
-
-
-
         console.log('Hello');
 
-        let firstnameDOM =  document.getElementById('firstname');
+  
+        let firstnameDOM = document.getElementById('firstname');
         console.log(firstnameDOM.value);
-        console.log(document.getElementById('firstname').value);
-        console.log(document.querySelector('#firstname').value);
-        console.log(document.querySelector('input[name="first\"]').value);
 
-        let hopby = document.querySelectorAll('input[name\="interest"]');
-        console.log(hopby.length);
-        for(let i=0;i<hopby.length;i++){
-            console.log(hopby[i].value);
-        }
 
-        function buttonClick(){
+        function buttonClick() {
             console.log('young gay na baby');
         }
-        function overitem(){
+
+        function overitem() {
             console.log('เกย์อุดรยังเจ');
         }
-        function submitdata(){
+
+        function submitdata() {
             console.log('เกย์รับปลื้มส่งใจแล้ว');
-            btn.setAttribute('disabled','true')
+            btn.setAttribute('disabled', 'true');
         }
-        const btn=document.getElementById('submit_btn');
-        btn.addEventListener('click',submitdata);
 
-        const  myname = document.getElementById('hellomyname');
-        console.log(myname);
-        console.log(myname.textContent);
-        console.log(myname.innerText);
-        console.log(myname.innerHTML);
+    
+        const btn = document.getElementById('submit_btn');
+        btn.addEventListener('click', submitdata);
 
-        let myhtml = '<ul>';
-            myhtml += '<li>' + firstnameDOM.value + '</li>';
-            myhtml += '</ul>';
-        console.log(document.getElementById('mycontent').innerHTML=myhtml);
-        document.getElementById('mycontent').innerHTML=myhtml;
-
-        let setcss =  document.getElementById('myhello');
-        setcss.style.backgroundColor= 'pink';
-        setcss.style.color='yellow';
-        
-        /*เพิ่ม*/
-        function submitInterest(){
-        let interestDom = document.querySelectorAll('input[name=interest]');
-        let contenthtml = '<ul>';
-        for(let i=0; i <interestDom.length;i++){
-            if(interestDom[i].checked){
-                console.log(interest[i].value);
-                contenthtml += '<li>' + interestDom[i].value +'</li>';
+  
+        function submitInterest() {
+            let interestDom = document.querySelectorAll('input[name=interest]');
+            let contenthtml = '<ul>';
+            
+            for (let i = 0; i < interestDom.length; i++) {
+                if (interestDom[i].checked) {
+                    contenthtml += '<li>' + interestDom[i].value + '</li>';
+                }
             }
-        }
-        contenthtml += '<ul>';
-        let contentDOM =document.getElementById('Newcontent');
-        contentDOM.innerHTML=contenthtml;
+            contenthtml += '</ul>'; 
+            
+            let contentDOM = document.getElementById('Newcontent');
+            contentDOM.innerHTML = contenthtml;
         }
 
+
+        let myhtml = '<ul><li>' + firstnameDOM.value + '</li></ul>';
+        document.getElementById('mycontent').innerHTML = myhtml;
+
+        let setcss = document.getElementById('myhello');
+        setcss.style.backgroundColor = 'pink';
+        setcss.style.color = 'yellow';
+
+    
         let thislinkDom = document.getElementById('thislink');
-        console.log(thislinkDom.getAttribute('href'));
-        thislinkDom.setAttribute('href','https://www.youtube.com/watch?v=yrzJSOM9tWA');
-
-
+        thislinkDom.setAttribute('href', 'https://www.youtube.com/watch?v=yrzJSOM9tWA');
     </script>
 </body>
 </html>
